@@ -1,9 +1,10 @@
 ---
-title: 'Title'
+title: Il progetto Web-of-Things e l'ontologia Thing Description
+subtitle: "Corso di Web Semantico - A.A. 2021/2022"
 date: \today
 documentclass: report
 author: 
-- "Castellucci Matteo"
+- "Castellucci Matteo - 0000982754"
 header-includes:
 - |
   ```{=latex}
