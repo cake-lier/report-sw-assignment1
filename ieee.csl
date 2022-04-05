@@ -50,9 +50,9 @@
   </info>
   <locale xml:lang="en">
     <terms>
-      <term name="chapter" form="short">ch.</term>
-      <term name="presented at">presented at the</term>
-      <term name="available at">available</term>
+      <term name="chapter" form="short">cap.</term>
+      <term name="presented at">presentato a</term>
+      <term name="available at">disponibile su</term>
     </terms>
   </locale>
   <!-- Macros -->
@@ -250,7 +250,7 @@
           </group>
         </group>
         <!-- Available: https://URL.com/ -->
-        <group delimiter=": ">
+        <group prefix=" " delimiter=": ">
           <text term="available at" text-case="capitalize-first"/>
           <text variable="URL"/>
         </group>
