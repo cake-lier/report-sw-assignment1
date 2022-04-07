@@ -10,9 +10,9 @@ Questo rende le applicazioni difficili da estendere, manutenere e riusare.
 
 "Web of Things" si prefigge di fornire un insieme di elementi tecnologici di base standardizzati per semplificare lo sviluppo di queste applicazioni.
 Questi elementi seguono il ben noto approccio utilizzato per costruire il _web_, ormai chiaramente rivelatosi di successo, capace di fornire maggiore flessibilità ed interoperabilità, nonché riuso di strumenti e standard consolidati.
-Il successo del progetto porterà ad uno sperabile superamento della frammentazione del panorama IoT, portando ad un maggiore sviluppo di un settore già di forte interesse tecnologico e commerciale.[@wot]
+Il successo del progetto porterà ad uno sperabile superamento della frammentazione del panorama IoT, portando ad un maggiore sviluppo di un settore già di forte interesse tecnologico e commerciale. [@wot]
 
-## Things e Thing Descriptions
+## Thing e Thing Description
 
 Al centro del progetto "WoT", così come nel campo dell'IoT, c'è il concetto di "_thing_", di oggetto.
 Secondo la definizione data all'interno del progetto stesso, una _thing_ è:
@@ -27,19 +27,19 @@ Una "Thing Description", all'interno dello stesso progetto, è definita come:
 
 > Structured data describing a Thing. A WoT Thing Description comprises general metadata, domain-specific metadata, Interaction Affordances (which include the supported Protocol Bindings), and links to related Things. The WoT Thing Description format is the central building block of W3C WoT.
 
-Innanzitutto, è bene concentrarsi sulla seconda frase che costituisce la definizione: il formato usato in una descrizione è un elemento fondante di WoT.[@wot-architecture]
+Innanzitutto, è bene concentrarsi sulla seconda frase che costituisce la definizione: il formato usato in una descrizione è un elemento fondante di WoT. [@wot-architecture]
 Una descrizione può essere vista, per il suo contenuto, come se fosse il "punto di ingresso" di un certo elemento di IoT. 
-Essa infatti fornisce informazioni su quali dati e funzionalità fornisce la _thing_ associata, quale protocollo utilizza per comunicare, come i dati sono codificati e strutturati, il meccanismo di controllo degli accessi utilizzato, assieme ad altri metadati pensati per essere letti e interpretati da umani e da sistemi automatici.[@wot]
+Essa infatti fornisce informazioni su quali dati e funzionalità fornisce la _thing_ associata, quale protocollo utilizza per comunicare, come i dati sono codificati e strutturati, il meccanismo di controllo degli accessi utilizzato, assieme ad altri metadati pensati per essere letti e interpretati da umani e da sistemi automatici. [@wot]
 
 Questo riconferma ciò che avevamo affermato poc'anzi: le "Thing Description" sono fondamentali per poter letteralmente parlare di una _thing_, per sapere che cos'è e che cosa fa.
 Non solo, sono anche fondamentali per poter dare una semantica agli elementi che sono parte del mio sistema IoT.
 Senza descrizioni, non avrei modo di far capire a nessuno, sia esso macchina o umano, quali sono le componenti del mio sistema, a che cosa servono e come interagiscono tra loro.
-Per ciò che contengono, le descrizioni fungono infatti sia come meccanismo che permette l'interazione tra macchine, sia come documentazione utile agli sviluppatori del sistema IoT.[@wot-architecture]
+Per ciò che contengono, le descrizioni fungono infatti sia come meccanismo che permette l'interazione tra macchine, sia come documentazione utile agli sviluppatori del sistema IoT. [@wot-architecture]
 
 L'unica alternativa all'approccio proposto è creare delle descrizioni per le mie _thing_ in un modo progettato ad hoc per la soluzione implementata.
 Quest'ultima scelta presenta chiaramente tutti quei rischi già elencati all'inizio.
 Ecco che allora lo strumento concettuale per creare una "Thing Description" diventa di assoluta importanza, dato che, senza di esso, non sarebbe possibile né costruirle, né costruirle in un modo standardizzato.
 
-Per questi motivi, nel prossimo capitolo andremo ad approfondire il significato della prima parte della definizione della "Thing Description", così da poter capire qual è il modello concettuale di una _thing_.
+Per questi motivi, nel prossimo capitolo andremo ad approfondire il significato della prima parte della definizione della "Thing Description", così da poter capire qual è il modello ontologico di una _thing_.
 Questo ci porterà a motivare perché l'ontologia delle descrizioni è costruita nel modo che vedremo.
 
