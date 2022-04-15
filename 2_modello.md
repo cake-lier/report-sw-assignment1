@@ -39,7 +39,7 @@ Possono essere modellati come eventi, ad esempio, un allarme o il campionamento 
 
 Qualora il formato dei dati non possa essere interamente dedotto dal "Protocol Binding", è possibile per una qualsiasi "Interaction Affordance" contenere uno schema per i dati che descriva com'è strutturato lo stato esposto, per le proprietà, gli input e gli output, per le azioni, e i dati trasmessi e i messaggi di controllo della sottoscrizione, per gli eventi. [@wot-architecture]
 
-## Modello di una "Thing Description"
+## Modellare una "Thing Description"
 
 Una "Thing Description" è descritta attraverso quattro ontologie di base:
 
@@ -48,9 +48,7 @@ Una "Thing Description" è descritta attraverso quattro ontologie di base:
 * l'ontologia "WoT Security", che identifica i meccanismi di sicurezza utilizzabili e i requisiti necessari per la loro configurazione;
 * l'ontologia "Hypermedia Controls", che codifica i principi fondamentali della comunicazione "RESTful" attraverso i _link_ e i _form_ già descritti.
 
-Quella di nostro interesse è perciò quella "_core_" e sarà quindi quella che verrà illustrata nel corso di questo capitolo. 
-
-Sulla base di quanto detto in precedenza, è possibile modellare una _thing_ e le sue interazioni nel modo che presenteremo nel resto di questa sezione.
+Quella di nostro interesse è solamente quella "_core_", che sarà quindi quella che verrà illustrata.
 
 ![Diagramma UML che mostra le relazioni tra le classi nell'ontologia "core", colorate in azzurro, e quelle nelle altre ontologie WoT](images/td.png){ width=100% }
 
@@ -58,69 +56,71 @@ La prima classe, quella fondamentale, è "Thing".
 Questa rappresenta una _thing_ così come l'abbiamo descritta, ovvero come astrazione di un'entità fisica o virtuale, eventualmente composta a sua volta da più _thing_.
 Questa classe è definita dai seguenti membri:
 
-* "@context": permette di definire delle scorciatoie per i termini definiti nella "Thing Description", è definita dallo standard JSON-LD;
-* "@type": permette di associare all'istanza di "Thing" uno o più tipi, è definita dallo standard JSON-LD;
-* "id": identificatore della _thing_ sotto forma di URI;
-* "title": il nome della _thing_ in un linguaggio di default;
-* "titles": un'istanza di "MultiLanguage" che associa i nomi alternativi della _thing_ ai linguaggi in cui sono scritti;
-* "description": la descrizione della _thing_, contenente informazioni aggiuntive, in un linguaggio di default;
-* "descriptions": un'istanza di "MultiLanguage" che associa le descrizioni alternative della _thing_ ai linguaggi in cui sono scritte;
-* "version": informazioni sulla versione della _thing_;
-* "created": informazioni su quando la _thing_ è stata creata; 
-* "modified": informazioni su quando la _thing_ è stata modificata l'ultima volta;
-* "support": informazioni sul manutentore della _thing_ sotto forma di URI, come ad esempio la sua _e-mail_, il suo numero di telefono o una pagina _web_ a lui associata;
-* "base": definisce l'URI di base per tutti quelli relativi presenti all'interno della "Thing Description", senza alcun effetto su quelli definiti in "@context";
-* "properties": le "PropertyAffordance" che questa "Thing" possiede;
-* "actions": le "ActionAffordance" che questa "Thing" possiede;
-* "events": le "EventAffordance" che questa "Thing" possiede;
-* "links": i _link_ alle risorse collegate a quella a cui questa "Thing Description" fa riferimento;
-* "forms": i _form_ che definiscono il come le operazioni di modifica delle di tutte le sue proprietà in una sola volta possono essere portate a termine;
-* "security": uno o più nomi delle configurazioni di sicurezza che devono essere soddisfatte per avere accesso alla _thing_, scelti tra quelli contenuti in "securityDefinitions";
-* "securityDefinitions": le definizioni delle configurazioni di sicurezza adottate, ma non necessariamente applicate.
+* "**\@context**": permette di definire delle scorciatoie per i termini definiti nella "Thing Description", è definita dallo standard JSON-LD;
+* "**\@type**": permette di associare all'istanza di "Thing" uno o più tipi, è definita dallo standard JSON-LD;
+* "**id**": identificatore della _thing_ sotto forma di URI;
+* "**title**": il nome della _thing_ in un linguaggio di default;
+* "**titles**": un'istanza di "MultiLanguage" che associa i nomi alternativi della _thing_ ai linguaggi in cui sono scritti;
+* "**description**": la descrizione della _thing_, contenente informazioni aggiuntive, in un linguaggio di default;
+* "**descriptions**": un'istanza di "MultiLanguage" che associa le descrizioni alternative della _thing_ ai linguaggi in cui sono scritte;
+* "**version**": un'istanza di "VersionInfo" contenente informazioni sulla versione della _thing_;
+* "**created**": informazioni su quando la _thing_ è stata creata; 
+* "**modified**": informazioni su quando la _thing_ è stata modificata l'ultima volta;
+* "**support**": informazioni sul manutentore della _thing_ sotto forma di URI, come ad esempio la sua _e-mail_, il suo numero di telefono o una pagina _web_ a lui associata;
+* "**base**": definisce l'URI di base per tutti quelli relativi presenti all'interno della "Thing Description", senza alcun effetto su quelli definiti in "\@context";
+* "**properties**": le "PropertyAffordance" che questa "Thing" possiede;
+* "**actions**": le "ActionAffordance" che questa "Thing" possiede;
+* "**events**": le "EventAffordance" che questa "Thing" possiede;
+* "**links**": i _link_ alle risorse collegate a quella a cui questa "Thing Description" fa riferimento;
+* "**forms**": i _form_ che definiscono il come le operazioni di modifica delle di tutte le sue proprietà in una sola volta possono essere portate a termine;
+* "**security**": uno o più nomi delle configurazioni di sicurezza che devono essere soddisfatte per avere accesso alla _thing_, scelti tra quelli contenuti in "securityDefinitions";
+* "**securityDefinitions**": le definizioni delle configurazioni di sicurezza adottate, ma non necessariamente applicate.
 
 L'altra classe fondamentale è quella di "InteractionAffordance", che rappresenta una modalità con la quale un componente può interagire con una _thing_.
 Questa classe è definita dai seguenti membri:
 
-* "@type": permette di associare all'istanza di "InteractionAffordance" uno o più tipi, è definita dallo standard JSON-LD;
-* "title": il nome dell'_affordance_ in un linguaggio di default;
-* "titles": un'istanza di "MultiLanguage" che associa i nomi alternativi dell'_affordance_ ai linguaggi in cui sono scritti;
-* "description": la descrizione dell'_affordance_, contenente informazioni aggiuntive, in un linguaggio di default;
-* "descriptions": un'istanza di "MultiLanguage" che associa le descrizioni alternative dell'_affordance_ ai linguaggi in cui sono scritte;
-* "forms": i _form_ che definiscono il come le operazioni associate possono essere portate a termine;
-* "uriVariables": le variabili _template_ contenute nell'URI utilizzato per attivare questa _affordance_, definite come attraverso il formato dei dati che devono essere forniti a quella variabile;
+* "**\@type**": permette di associare all'istanza di "InteractionAffordance" uno o più tipi, è definita dallo standard JSON-LD;
+* "**title**": il nome dell'_affordance_ in un linguaggio di default;
+* "**titles**": un'istanza di "MultiLanguage" che associa i nomi alternativi dell'_affordance_ ai linguaggi in cui sono scritti;
+* "**description**": la descrizione dell'_affordance_, contenente informazioni aggiuntive, in un linguaggio di default;
+* "**descriptions**": un'istanza di "MultiLanguage" che associa le descrizioni alternative dell'_affordance_ ai linguaggi in cui sono scritte;
+* "**forms**": i _form_ che definiscono il come le operazioni associate possono essere portate a termine;
+* "**uriVariables**": le variabili _template_ contenute nell'URI utilizzato per attivare questa _affordance_, definite come attraverso il formato dei dati che devono essere forniti a quella variabile;
 
 Come abbiamo già detto, la classe "InteractionAffordance ha poi tre sottoclassi: "PropertyAffordance", "ActionAffordance" ed "EventAffordance".
 La classe "PropertyAffordance" possiede solamente il seguente membro:
 
-* "observable": suggerimento che indica qualora questa proprietà possa essere osservata in qualche modo messo a disposizione dal protocollo utilizzato per implementare la _thing_.
+* "**observable**": suggerimento che indica qualora questa proprietà possa essere osservata in qualche modo messo a disposizione dal protocollo utilizzato per implementare la _thing_.
 
 Questa classe è però anche istanza della classe "DataSchema", che non verrà ulteriormente approfondita perché non fa parte di questa ontologia.
 Non di meno, è importante sottolinearlo perché questo ci permette di fare due osservazioni importanti.
 La prima è che in effetti una proprietà è di per sé un dato, un valore, perciò la "Thing Description" deve fornire il modo di descrivere come qual è l'insieme dei valori accettabili per quella proprietà.
 La seconda osservazione è che perciò l'istanza di una proprietà possiede anche i seguenti membri:
 
-* "type": il tipo della proprietà, che può essere solamente uno tra quelli compatibili con lo standard JSON schema (cioè "boolean", "integer", "number", "string", "object", "array", o "null");
-* "const": il valore costante associato alla proprietà, qualora fosse sensato per la proprietà;
-* "unit": l'unità di misura associata al valore della proprietà, qualora fosse sensato per la proprietà;
-* "oneOf": le istanze di "DataSchema" di cui almeno una permette di validare il valore di questa proprietà, qualora il tipo utilizzato fosse composto;
-* "enum": l'insieme di tutti e i soli valori validi per questa proprietà, qualora fosse sensato per questa proprietà;
-* "readOnly": suggerimento che indica se questa proprietà è in sola lettura;
-* "writeOnly": suggerimento che indica se questa proprietà è in sola scrittura;
-* "format": _pattern_ utilizzabile per la validazione dei valori che questa proprietà può accettare.
+* "**type**": il tipo della proprietà, che può essere solamente uno tra quelli compatibili con lo standard JSON schema (cioè "boolean", "integer", "number", "string", "object", "array", o "null");
+* "**const**": il valore costante associato alla proprietà, qualora fosse sensato per la proprietà;
+* "**unit**": l'unità di misura associata al valore della proprietà, qualora fosse sensato per la proprietà;
+* "**oneOf**": le istanze di "DataSchema" di cui almeno una permette di validare il valore di questa proprietà, qualora il tipo utilizzato fosse composto;
+* "**enum**": l'insieme di tutti e i soli valori validi per questa proprietà, qualora fosse sensato per questa proprietà;
+* "**readOnly**": suggerimento che indica se questa proprietà è in sola lettura;
+* "**writeOnly**": suggerimento che indica se questa proprietà è in sola scrittura;
+* "**format**": _pattern_ utilizzabile per la validazione dei valori che questa proprietà può accettare.
 
 La classe "ActionAffordance" possiede invece i membri:
 
-* "input": contiene l'istanza di "DataSchema" utilizzata per definire il formato dell'_input_ dell'azione;
-* "output": contiene l'istanza di "DataSchema" utilizzata per definire il formato dell'_output_ dell'azione;
-* "safe": segnala se l'azione non è "mutabile" o meno, ovvero se non ha dei _side effect_ che modificano il suo stato interno o meno. Questo significa che se l'azione è "sicura" si può fare _caching_ del risultato;
-* "idempotent": segnala se l'azione è "deterministica" o meno, ovvero se a fronte degli stessi _input_ fornisce gli stessi _output_ e può perciò essere chiamata più volte senza paura che il risultato cambi.
+* "**input**": contiene l'istanza di "DataSchema" utilizzata per definire il formato dell'_input_ dell'azione;
+* "**output**": contiene l'istanza di "DataSchema" utilizzata per definire il formato dell'_output_ dell'azione;
+* "**safe**": segnala se l'azione non è "mutabile" o meno, ovvero se non ha dei _side effect_ che modificano il suo stato interno o meno. Questo significa che se l'azione è "sicura" si può fare _caching_ del risultato;
+* "**idempotent**": segnala se l'azione è "deterministica" o meno, ovvero se a fronte degli stessi _input_ fornisce gli stessi _output_ e può perciò essere chiamata più volte senza paura che il risultato cambi.
 
 Infine, la classe "EventAffordance" possiede i membri:
 
-* "subscription": definisce il formato dei dati che devono essere passati per effettuare la sottoscrizione all'evento, come eventuali filtri o formati di messaggio per impostare un "Webhook";
-* "data": definisce i messaggi dell'istanza di evento che la _thing_ genera;
-* "cancellation": definisce il formato dei dati che devono essere passati per effettuare la cancellazione di una sottoscrizione precedentemente contratta.
+* "**subscription**": definisce il formato dei dati che devono essere passati per effettuare la sottoscrizione all'evento, come eventuali filtri o formati di messaggio per impostare un "Webhook";
+* "**data**": definisce i messaggi dell'istanza di evento che la _thing_ genera;
+* "**cancellation**": definisce il formato dei dati che devono essere passati per effettuare la cancellazione di una sottoscrizione precedentemente contratta.
 
-Anche se le classi "MultiLanguage" e "VersionInfo" non sono state esplicitamente citate, pur apparendo tra quelle 
-
-[@wot-td]
+Seguono le due classi "accessorie" al modello, che sono utili per completarlo, ma non sono di particolare interesse, tant'è che non saranno presenti nell'ontologia.
+Queste due classi sono "VersionInfo" e "MultiLanguage".
+La prima è utile per fornire informazioni di versione sulla "Thing Description" ed è costituita da un solo membro: "instance".
+Questo campo contiene l'indicatore di versione della risorsa, come ad esempio la versione secondo il formato "Semantic Versioning".
+La seconda classe invece rappresenta una dizionario che associa le varie lingue alle traduzioni in quelle stesse lingue di uno stesso testo. [@wot-td]
