@@ -42,4 +42,3 @@ Ecco che allora lo strumento concettuale per creare una "Thing Description" dive
 
 Per questi motivi, nel prossimo capitolo andremo ad approfondire il significato della prima parte della definizione della "Thing Description", così da poter capire qual è il modello ontologico di una _thing_.
 Questo ci porterà a motivare perché l'ontologia delle descrizioni è costruita nel modo che vedremo.
-

@@ -8,7 +8,7 @@ Queste rappresentano un modello di come un altro componente del sistema, uno che
 Per poter associare le "Interaction Affordances" a uno specifico protocollo di comunicazione supportato da questo progetto esistono i cosiddetti "Protocol Bindings", che non sono però di nostro interesse, così come non lo è la sua configurazione di sicurezza.
 Questa rappresenta invece i meccanismi usati per controllare l'accesso alle "Interaction Affordances" e per gestire i metadati di sicurezza pubblici e privati associati. [@wot-architecture]
 
-## Che cos'è un'interazione
+## Thing e interazioni
 
 Tralasciando l'aspetto comportamentale, che è maggiormente legato alla sua implementazione e non alla sua definizione, è evidente che la componente più importante di una _thing_ è quella delle interazioni che è capace di avere.
 Per questo motivo all'interno del progetto WoT è stato definito un "Interaction Model", capace di dare una definizione univoca all'astrazione di interazione utilizzata.
@@ -29,6 +29,8 @@ Un evento potrebbe verificarsi a seguito di condizioni che non sono direttamente
 Possono essere modellati come eventi, ad esempio, un allarme o il campionamento di una serie temporale di cui viene fatto il _push_ ad intervalli regolari.
 
 Qualora il formato dei dati non possa essere interamente dedotto dal "Protocol Binding", è possibile per una qualsiasi "Interaction Affordance" contenere uno schema per i dati che descriva com'è strutturato lo stato esposto, per le proprietà, gli input e gli output, per le azioni, e i dati trasmessi e i messaggi di controllo della sottoscrizione, per gli eventi.
+
+## Thing e risorse web
 
 Una _thing_ è però anche una risorsa _web_, nello stesso modo in cui lo è la una pagina di un sito _web_.
 In quanto tale, essa possiede anche tutte le interazioni di cui una risorsa è capace, ovvero quelle di navigazione, che permettono di raggiungerla tramite _link_ e da questa poi passare ad altre ad essa collegate sempre attraverso _link_.
