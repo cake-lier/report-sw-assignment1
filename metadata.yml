@@ -22,7 +22,7 @@ indent: true
 fontsize: 12pt
 papersize: a4
 toc: true
-from: markdown+raw_attribute+tex_math_dollars+link_attributes+citations
+from: markdown+raw_attribute+tex_math_dollars+link_attributes+citations+table_captions+pipe_tables
 to: pdf
 reference-section-title: "Bibliografia"
 lang: it
