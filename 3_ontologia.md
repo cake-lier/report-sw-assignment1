@@ -80,14 +80,81 @@ L'ontologia "_core_" di una "Thing Description" è costituita da 6 classi, 24 pr
 
 | Nome | Commento |
 |------|----------|
-| supportContact |
-| followsProfile |
-| baseURI |
-| versionInfo |
-| instance |
-| model |
+| supportContact | Fornisce informazioni sul manutentore della "Thing Description". |
+| followsProfile | Indica i meccanismi "WoT Profile" che la "Thing Description" segue e così l'implementazione di "Thing" associata. |
+| baseURI | Definisce l'URI base per tutti gli URI relativi contenuti nella "Thing Description". | 
+| versionInfo | Fornisce informazioni sulla versione. |
+| instance | Fornisce un identificatore di versione per questa istanza di "Thing Description". |
+| model | Fornisce un identificatore di versione per il modello della "Thing" sottostante, quello associato alla "Thing" descritta da questa "Thing Description". |
+[@td-ontology]
 
 ## Esempi
+
+    {
+        "@context": {
+            "https://www.w3.org/2019/wot/td/v1",
+            {"@base": "http://example.org/MyLampThing/"}
+        },
+        "id": "urn:dev:ops:32473-WoTLamp-1234",
+        "title": "MyLampThing",
+        "securityDefinitions": {
+            "basic_sc": {"scheme": "basic", "in":"header"}
+        },
+        "security": ["basic_sc"],
+        "properties": {
+            "status" : {
+                "type": "string",
+                "forms": [{"href": "https://mylamp.example.com/status"}]
+            }
+        },
+        "actions": {
+            "toggle" : {
+                "forms": [{"href": "https://mylamp.example.com/toggle"}]
+            }
+        },
+        "events":{
+            "overheating":{
+                "data": {"type": "string"},
+                "forms": [{
+                    "href": "https://mylamp.example.com/oh",
+                    "subprotocol": "longpoll"
+                }]
+            }
+        }
+    }
+
+Si ripresenta ora lo stesso esempio nel linguaggio "Turtle".
+
+    @prefix td: <https://www.w3.org/2019/wot/td>.
+    @prefix hctl: <https://www.w3.org/2019/wot/hypermedia>.
+    @prefix wotsec: <https://www.w3.org/2019/wot/security>.
+    @prefix jsonSchema: <https://www.w3.org/2019/wot/json-schema>.
+
+    <urn:dev:ops:32473-WoTLamp-1234>
+        td:title "MyLampThing";
+        td:definesSecurityScheme [
+            a wotsec:BasicSecurityScheme;
+            wotsec:in "header";
+            td:hasConfigurationInstance <http://example.org/MyLampThing/basic_sc>
+        ];
+        td:hasSecurityConfiguration <http://example.org/MyLampThing/basic_sc>;
+        td:hasPropertyAffordance [
+            td:name "status";
+            a jsonSchema:StringSchema;
+            td:hasForm [ hctl:hasTarget "https://mylamp.example.com/status" ]
+        ];
+        td:hasActionAffordance [
+            td:name "toggle";
+            td:hasForm [ hctl:hasTarget "https://mylamp.example.com/toggle" ]
+        ];
+        td:hasEventAffordance [
+            td:name "overheating";
+            td:hasNotificationSchema [ a jsonSchema:StringSchema ];
+            td:hasForm [
+                hctl:forSubProtocol "longpoll";
+                hctl:hasTarget "https://mylamp.example.com/oh"
+            ];
+        ].
 
 ## Allineamenti con altre ontologie
 
