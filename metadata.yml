@@ -17,12 +17,13 @@ header-includes:
   \usepackage{indentfirst}
   \usepackage{float}
   \usepackage{graphicx}
+  \usepackage{tabularx}
   ```
 indent: true
 fontsize: 12pt
 papersize: a4
 toc: true
-from: markdown+raw_attribute+tex_math_dollars+link_attributes+citations+table_captions+pipe_tables
+from: markdown+raw_attribute+tex_math_dollars+link_attributes+citations
 to: pdf
 reference-section-title: "Bibliografia"
 lang: it
