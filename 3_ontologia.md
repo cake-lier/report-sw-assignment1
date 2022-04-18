@@ -4,9 +4,12 @@
 
 L'ontologia "_core_" di una "Thing Description" è costituita da 6 classi, 30 proprietà e 18 istanze. 
 Le 24 proprietà sono suddivise in 16 "_object properties_", 8 "_datatype properties_" e 6 "_annotation properties_". [@td-ontology]
-Il seguito del capitolo sarà innanzitutto dedicato a spiegare tutte le classi, le proprietà e le istanze in massimo dettaglio.
+Il seguito del capitolo sarà innanzitutto dedicato a spiegare tutte le classi, le proprietà e le istanze in dettaglio.
+È bene però sottolineare come l'ontologia contenga anche elementi che fanno riferimento alla prossima versione del progetto "Web Of Things", che però non è ancora stata rilasciata perché non ha ancora raggiunto lo status di "W3C Recommendation".
+Si è comunque deciso di commentare la versione più recente dell'ontologia perché è quella attualmente disponibile _online_ e perché contiene tutta una serie di concetti che non erano presenti nella vecchia versione, ma che erano già presenti nel modello di riferimento.
+Si è perciò ritenuto che sarebbe stata un'idea migliore spendere più tempo nel descrivere l'ontologia, aggiungendo anche dettagli che non corrispondono esattamente con il modello, pur di coprire l'intero modello ontologico di riferimento.
 
-È bene sottolineare che questa ontologia si serve di altre nella sua definizione.
+Per prima cosa, si vuole evidenziare il fatto che questa ontologia si serve di altre nella sua definizione.
 Innanzitutto utilizza le tre ontologie definite dallo stesso standard che abbiamo indicato come necessarie per la stesura di una "Thing Description", ovvero "Data Schema", "WoT Security" e infine "Hypermedia Controls".
 Queste sono rappresentate rispettivamente dai _namespace_ "jsonschema", "wotsec" e "hctl".
 Oltre a queste, l'ontologia _core_ si appoggia anche a "Schema.org", rappresentata dal namespace "schema", e "Dublin Core", rappresentata invece da "dcterms".
