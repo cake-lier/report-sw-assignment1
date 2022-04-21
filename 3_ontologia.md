@@ -303,9 +303,11 @@ I vincoli che invece legano "InteractionAffordance" e le sue sottoclassi alle en
 * Se una "ActionAffordance" possiede la proprietà "forProperty", il range di quest'ultima deve essere ristretto alle "ActuatableProperty". Questo deve essere vero perché un'azione è sempre compiuta su di una proprietà della "Thing" che può essere modificata, perciò questa non può che essere una "ActuatableProperty".
 * Se una "EventAffordance" possiede la proprietà "forProperty", il range di quest'ultima deve essere ristretto alle "ObservableProperty". Questo deve essere vero perché una sorgente di eventi può fare riferimento solamente ad una proprietà della "Thing" che può essere osservata, perciò questa non può che essere una "ObservableProperty".
 
-Non solo, esistono anche dei legami tra questa ontologia e quella di "Schema.org", in particolar modo nella sua parte inerente alle interazioni. 
-Non a caso, nell'"Interaction Model" di una "Thing Description" si parla di interazioni tra le "Thing" ed altri componenti, che sono particolari tipi di azioni.
-I vincoli che legano perciò "InteractionAffordance" con le entità presenti nell'ontologia di "Schema.org" sono i seguenti:
+Non solo, esistono anche dei legami tra questa ontologia e quella di "Schema.org", in particolar modo con la parte di quest'ultima inerente alle azioni.
+Bisogna però fare attenzione all'uso dei termini.
+Se infatti "Schema.org" utilizza il termine "azione", questo non corrisponde ad un'azione come intesa nel dominio dell'ontologia _core_, ma bensì alla più generica "interazione".
+Ricordiamo infatti che un'interazione definisce, per i componenti che sfruttano la "Thing", il modo nel quale interagire con quest'ultima, cioè di fatto le azioni che gli altri componenti possono effettuare su di essa, azioni con lo stesso significato che "Schema.org" adotta.
+I vincoli che legano "InteractionAffordance" con le entità presenti nell'ontologia "Schema.org" sono perciò i seguenti:
 
-* Una "InteractionAffordance" è sottoclasse di "Action" e, se possiede la proprietà "actionStatus", allora il valore di questa proprietà sarà "PotentialActionStatus". Questo perché le interazioni presenti in una "Thing Description" sono, appunto, la descrizione delle possibili azioni che possono essere intraprese, non sono azioni in corso o compiute.
-* La proprietà "hasInteractionAffordance" è sottoproprietà di "potentialAction". Questo è un diretto risultato della considerazione precedente: se una "InteractionAffordance" è sempre una "PotentialAction", allora se una "Thing" possiede una "InteractionAffordance" possiede anche un'azione che può essere potenzialmente compiuta.
+* Una "InteractionAffordance" è sottoclasse di "Action" e, se possiede la proprietà "actionStatus", allora il valore di questa proprietà sarà "PotentialActionStatus". Questo perché le interazioni presenti in una "Thing Description" sono, appunto, la descrizione delle possibili azioni che possono essere intraprese, non sono azioni in corso o già compiute.
+* La proprietà "hasInteractionAffordance" è sottoproprietà di "potentialAction". Questo è un diretto risultato del vincolo precedente: se una "InteractionAffordance" è di fatto un'azione in potenza, allora se una "Thing" definisce una "InteractionAffordance", definisce anche un'azione che può essere potenzialmente compiuta.
