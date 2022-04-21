@@ -303,7 +303,7 @@ I vincoli che invece legano "InteractionAffordance" e le sue sottoclassi alle en
 * Se una "ActionAffordance" possiede la proprietà "forProperty", il range di quest'ultima deve essere ristretto alle "ActuatableProperty". Questo deve essere vero perché un'azione è sempre compiuta su di una proprietà della "Thing" che può essere modificata, perciò questa non può che essere una "ActuatableProperty".
 * Se una "EventAffordance" possiede la proprietà "forProperty", il range di quest'ultima deve essere ristretto alle "ObservableProperty". Questo deve essere vero perché una sorgente di eventi può fare riferimento solamente ad una proprietà della "Thing" che può essere osservata, perciò questa non può che essere una "ObservableProperty".
 
-Non solo, esistono anche dei legami tra questa ontologia e quella di "Schema.org", in particolar modo con la parte di quest'ultima inerente alle azioni.
+Non solo, esistono anche dei legami tra questa ontologia e quella di "Schema.org" [@schema], in particolar modo con la parte di quest'ultima inerente alle azioni.
 Bisogna però fare attenzione all'uso dei termini.
 Se infatti "Schema.org" utilizza il termine "azione", questo non corrisponde ad un'azione come intesa nel dominio dell'ontologia _core_, ma bensì alla più generica "interazione".
 Ricordiamo infatti che un'interazione definisce, per i componenti che sfruttano la "Thing", il modo nel quale interagire con quest'ultima, cioè di fatto le azioni che gli altri componenti possono effettuare su di essa, azioni con lo stesso significato che "Schema.org" adotta.
